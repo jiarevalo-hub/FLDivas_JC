@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>Tienda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- FILTROS -->
+  <div class="filters">
+    <ion-chip
+      *ngFor="let cat of categorias"
+      [class.active]="cat === categoriaSeleccionada"
+      (click)="seleccionarCategoria(cat)"
+    >
+      {{ cat }}
+    </ion-chip>
+  </div>
+
+  <!-- PRODUCTOS -->
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let producto of productosFiltrados">
+      <div
+        class="product-image"
+        [style.backgroundImage]="'url(' + producto.imagen + ')'"
+      ></div>
+
+      <div class="product-info">
+        <h3>{{ producto.nombre }}</h3>
+        <p class="price">${{ producto.precio }}</p>
+
+        <ion-button
+          expand="block"
+          shape="round"
+          class="btn-add"
+          (click)="agregarAlCarrito(producto)"
+        >
+          Agregar al carrito
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

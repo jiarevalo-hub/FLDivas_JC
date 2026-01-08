@@ -1,0 +1,47 @@
+<ion-header translucent>
+  <ion-toolbar class="toolbar">
+    <ion-title>FLDivas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!-- HERO PREMIUM -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>Elegancia que define tu estilo</h1>
+      <p>Moda exclusiva para mujeres auténticas</p>
+
+      <ion-button shape="round" class="btn-premium" (click)="irATienda()">
+        Explorar colección
+      </ion-button>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categories">
+    <h2>Colecciones</h2>
+
+    <div class="grid">
+      <div
+        class="category-card"
+        *ngFor="let cat of categorias"
+        [style.backgroundImage]="'url(' + cat.imagen + ')'"
+      >
+        <div class="category-overlay">
+          <span>{{ cat.nombre }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN BRAND -->
+  <section class="brand">
+    <h3>FLDivas</h3>
+    <p>
+      Diseñamos prendas que reflejan elegancia, confianza y
+      personalidad. Cada pieza es una declaración de estilo.
+    </p>
+  </section>
+
+</ion-content>
